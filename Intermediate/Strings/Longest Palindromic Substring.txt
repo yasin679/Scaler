@@ -1,0 +1,90 @@
+Problem Description
+
+Given a string A of size N, find and return the longest palindromic substring in A.
+
+Substring of string A is A[i...j] where 0 <= i <= j < len(A)
+
+Palindrome string:
+A string which reads the same backwards. More formally, A is palindrome if reverse(A) = A.
+
+Incase of conflict, return the substring which occurs first ( with the least starting index).
+
+
+
+Problem Constraints
+
+1 <= N <= 10000
+
+
+
+Input Format
+
+First and only argument is a string A.
+
+
+
+Output Format
+
+Return a string denoting the longest palindromic substring of string A.
+
+
+
+Example Input
+
+A = "aaaabaaa"
+
+
+Example Output
+
+"aaabaaa"
+
+
+Example Explanation
+
+We can see that longest palindromic substring is of length 7 and the string is "aaabaaa".
+
+
+public class Solution {
+    public String getPalidrome(String str, int low, int high)
+    {
+        while (low >= 0 && high < str.length() &&
+                (str.charAt(low) == str.charAt(high))) {
+            low--;
+            high++;
+        }
+ 
+        return str.substring(low + 1, high);
+    }
+
+    public String longestPalindrome(String A) {
+        if (A == null || A.length() == 0) {
+            return A;
+        }
+ 
+        String max_str = "", curr_str; 
+        int max_length = 0, curr_length;
+
+        for (int i = 0; i < A.length(); i++)
+        {
+            curr_str = getPalidrome(A, i, i);
+            curr_length = curr_str.length();
+ 
+            if (curr_length > max_length)
+            {
+                max_length = curr_length;
+                max_str = curr_str;
+            }
+ 
+            curr_str = getPalidrome(A, i, i + 1);
+            curr_length = curr_str.length();
+ 
+            if (curr_length > max_length)
+            {
+                max_length = curr_length;
+                max_str = curr_str;
+            }
+        }
+ 
+        return max_str;
+    }
+}
