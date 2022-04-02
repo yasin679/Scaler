@@ -1,0 +1,100 @@
+Problem Description
+You are given an integer array A. You have to find the second largest element/value in the array or report that no such element exists.
+
+
+
+Problem Constraints
+1 <= |A| <= 105
+
+0 <= A[i] <= 109
+
+
+
+Input Format
+The first argument is an integer array A.
+
+
+
+Output Format
+Return the second largest element. If no such element exist then return -1.
+
+
+
+Example Input
+Input 1:
+
+ A = [2, 1, 2] 
+Input 2:
+
+ A = [2]
+
+
+Example Output
+Output 1:
+
+ 2 
+Output 2:
+
+ -1 
+
+
+Example Explanation
+Explanation 1:
+
+ First largest element = 2
+ Second largest element = 2
+ Third largest element = 1
+Explanation 2:
+
+ There is no second largest element in the array.
+ 
+import java.lang.*;
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        // YOUR CODE GOES HERE
+        // Please take input and print output to standard input/output (stdin/stdout)
+        // DO NOT USE ARGUMENTS FOR INPUTS
+        // E.g. 'Scanner' for input & 'System.out' for output
+        Scanner sc=new Scanner(System.in);
+        int tc=sc.nextInt();
+        for(int i=0;i<tc;i++)
+        {     
+            int arrlen=sc.nextInt();
+            // if(arrlen<2)
+            // {
+            //     System.out.println("-1");
+            // }
+            // else
+            // {
+                int arr[]=new int[arrlen];
+                for (int j = 0; j < arrlen; j++) {
+                    arr[j]=sc.nextInt();
+                }   
+                int maxnum=Integer.MIN_VALUE;
+                int secMax=Integer.MIN_VALUE;
+                for(int j=0; j<arrlen; j++)  
+                {   
+                    if(arr[j]>maxnum) 
+                    {
+                        secMax=maxnum;
+                        maxnum=arr[j];
+                    }
+                    else if (arr[j] > secMax)
+                    {
+                        secMax = arr[j];  
+                    }      
+                } 
+                if (secMax == Integer.MIN_VALUE)
+                {
+                    System.out.println("-1");
+                }
+                else
+                {
+                    System.out.println(secMax);
+                }
+            // }
+        }
+    }
+}
