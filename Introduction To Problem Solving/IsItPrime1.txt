@@ -1,0 +1,47 @@
+import java.lang.*;
+import java.util.*;
+
+public class Main {
+
+    static boolean isPrime(int num)
+    {
+        if(num<=1)
+        {
+            return false;
+        }
+        else if(num==2)
+        {
+            return true;
+        }
+        else if(num%2==0)
+        {
+            return false;
+        }
+        for(int i=3;i*i<=num;i++)
+        {
+            if(num%i==0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        // YOUR CODE GOES HERE
+        // Please take input and print output to standard input/output (stdin/stdout)
+        // DO NOT USE ARGUMENTS FOR INPUTS
+        // E.g. 'Scanner' for input & 'System.out' for output
+         Scanner sc= new Scanner(System.in); 
+        // System.out.print("Enter number- ");  
+         int num= sc.nextInt();  
+
+         if(isPrime(num))
+         {
+             System.out.print("YES");  
+         }
+         else
+         {
+             System.out.print("NO");  
+         }
+    }
+}

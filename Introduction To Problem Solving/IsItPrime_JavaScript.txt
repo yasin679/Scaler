@@ -1,0 +1,39 @@
+// YOUR CODE GOES HERE
+// Please take input and print output to standard input/output (stdin/stdout)
+// DO NOT USE ARGUMENTS FOR INPUTS
+const readline = require("readline");
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.on('line', (A) => {
+        // if(A<=1)
+        // {
+        //     console.log("NO");  
+        //     return;
+        // }
+        // else if(A==2)
+        // {
+        //     console.log("NO"); 
+        //     return; 
+        // }
+        // else if(A%2==0)
+        // {
+        //     console.log("NO");  
+        //     return;
+        // }
+        
+        var count = false;
+        for(var i=2;i*i<=A;i++){
+            if(A%i === 0){
+                count = true;
+            }
+        }
+        if(count){
+            console.log("NO");  
+        }
+        else{
+            console.log("YES");  
+        }
+});
